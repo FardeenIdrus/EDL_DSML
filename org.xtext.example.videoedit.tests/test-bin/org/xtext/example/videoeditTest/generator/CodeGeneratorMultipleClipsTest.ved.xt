@@ -1,0 +1,35 @@
+/* XPECT_SETUP org.xtext.example.videoeditTest.generator.CodeGeneratorTest END_SETUP */
+
+/* 
+ * Test case for VideoEdit generator with multiple sequential clips
+ */
+/* 
+XPECT generated ---
+TITLE: Multiple Clips Test
+FCM: NON-DROP FRAME
+
+001  AX       V     C        00:00:00:00 00:00:05:00 00:00:00:00 00:00:05:00
+* FROM CLIP NAME: clip1.mp4
+
+002  BL       V     C        00:00:00:00 00:00:05:00 00:00:05:00 00:00:10:00
+* FROM CLIP NAME: clip2.mp4
+
+---
+*/
+
+project "Multiple Clips Test" {
+    track V1 main_video {
+        clip "First Clip" {
+            source: "clip1.mp4"
+            source_in: 0:0:0:0
+            source_out: 0:0:5:0
+            target_position: 0:0:0:0
+        }
+        clip "Second Clip" {
+            source: "clip2.mp4"
+            source_in: 0:0:0:0
+            source_out: 0:0:5:0
+            target_position: 0:0:5:0
+        }
+    }
+}

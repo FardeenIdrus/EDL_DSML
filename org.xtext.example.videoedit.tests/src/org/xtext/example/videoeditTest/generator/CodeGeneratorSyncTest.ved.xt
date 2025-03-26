@@ -1,0 +1,48 @@
+/* XPECT_SETUP org.xtext.example.videoeditTest.generator.CodeGeneratorTest END_SETUP */
+
+/* 
+ * Test case for VideoEdit Sync audio and video code generator
+ */
+/* 
+XPECT generated ---
+-- DEFAULT_OUTPUTSync Test_audio.edl --
+  TITLE: Sync Test
+  FCM: NON-DROP FRAME
+  
+  001  AX       A     C        00:00:00:00 00:00:10:00 00:00:00:00 00:00:10:00
+  * FROM CLIP NAME: audioGen.mp3
+  * SYNC WITH CLIP: Main Scene
+  
+  
+-- / --
+-- DEFAULT_OUTPUTSync Test_video.edl --
+  TITLE: Sync Test
+  FCM: NON-DROP FRAME
+  
+  001  AX       V     C        00:00:00:00 00:00:10:00 00:00:00:00 00:00:10:00
+  * FROM CLIP NAME: Short3Eng.mp4
+  
+  
+-- / --
+---
+*/
+project "Sync Test" {
+    track V1 video {
+        clip "Main Scene" {
+            source: "Short3Eng.mp4"
+            source_in: 0:0:0:0
+            source_out: 0:0:10:0
+            target_position: 0:0:0:0
+        }
+    }
+
+    track A1 audio {
+        clip "Matching Audio" {
+            source: "audioGen.mp3"
+            source_in: 0:0:0:0
+            source_out: 0:0:10:0
+            target_position: 0:0:0:0
+            sync_with: "Main Scene"
+        }
+    }
+}

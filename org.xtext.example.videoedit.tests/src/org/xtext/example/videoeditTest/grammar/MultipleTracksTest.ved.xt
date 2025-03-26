@@ -1,0 +1,22 @@
+/* XPECT_SETUP org.xtext.example.videoeditTest.grammar.GrammarTest END_SETUP */
+
+project "Multiple Tracks Test" {
+    track V1 video {
+        clip "Main Video" {
+            source: "Short3Eng.mp4"
+            source_in: 0:0:0:0
+            source_out: 0:0:10:0
+            target_position: 0:0:0:0
+        }
+    }
+
+    track A1 music {
+        clip "Background Music" {
+            source: "exampleAudio.mp3"
+            source_in: 0:0:0:0
+            source_out: 0:0:20:0
+            target_position: 0:0:0:0
+            audio_level: 50%
+        }
+    }
+}

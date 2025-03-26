@@ -1,0 +1,50 @@
+/* XPECT_SETUP org.xtext.example.videoeditTest.generator.CodeGeneratorTest END_SETUP */
+
+/* 
+ * Test case for VideoEdit Multiple Tracks code generator
+ */
+ 
+/* 
+XPECT generated ---
+-- DEFAULT_OUTPUTMulti-Track Test_music.edl --
+  TITLE: Multi-Track Test
+  FCM: NON-DROP FRAME
+  
+  001  AX       A     C        00:00:00:00 00:00:20:00 00:00:00:00 00:00:20:00
+  * FROM CLIP NAME: exampleAudio.mp3
+  * AUDIO LEVEL AT 00:00:00:00 IS 50.00 DB  (REEL AX A1)
+  
+  
+-- / --
+-- DEFAULT_OUTPUTMulti-Track Test_video.edl --
+  TITLE: Multi-Track Test
+  FCM: NON-DROP FRAME
+  
+  001  AX       V     C        00:00:00:00 00:00:10:00 00:00:00:00 00:00:10:00
+  * FROM CLIP NAME: Short3Eng.mp4
+  
+
+-- / --
+---
+*/
+project "Multi-Track Test" {
+    track V1 video {
+        clip "Main Video" {
+            source: "Short3Eng.mp4"
+            source_in: 0:0:0:0
+            source_out: 0:0:10:0
+            target_position: 0:0:0:0
+        }
+    }
+
+    track A1 music {
+        clip "Background Music" {
+            source: "exampleAudio.mp3"
+            source_in: 0:0:0:0
+            source_out: 0:0:20:0
+            target_position: 0:0:0:0
+            audio_level: 50%
+        }
+    }
+}
+

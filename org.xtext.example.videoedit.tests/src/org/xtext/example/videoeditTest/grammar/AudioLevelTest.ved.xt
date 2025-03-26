@@ -1,0 +1,13 @@
+/* XPECT_SETUP org.xtext.example.videoeditTest.grammar.GrammarTest END_SETUP */
+
+project "Audio Level Test" {
+    track A1 music {
+        clip "Music with Volume" {
+            source: "audio.mp3"
+            source_in: 0:0:0:0
+            source_out: 0:0:15:0
+            target_position: 0:0:0:0
+            audio_level: 75%
+        }
+    }
+}

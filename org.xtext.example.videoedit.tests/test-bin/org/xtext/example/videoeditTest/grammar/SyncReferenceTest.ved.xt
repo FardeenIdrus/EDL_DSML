@@ -1,0 +1,20 @@
+/* XPECT_SETUP org.xtext.example.videoeditTest.grammar.GrammarTest END_SETUP */
+
+project "Sync Reference Test" {
+    track V1 video {
+        clip "First Clip" {
+            source: "scene1.mp4"
+            source_in: 0:0:0:0
+            source_out: 0:0:10:0
+            target_position: 0:0:0:0
+        }
+        
+        clip "Synced Clip" {
+            source: "scene2.mp4"
+            source_in: 0:0:0:0
+            source_out: 0:0:5:0
+            target_position: 0:0:10:0
+            sync_with: "First Clip"
+        }
+    }
+}

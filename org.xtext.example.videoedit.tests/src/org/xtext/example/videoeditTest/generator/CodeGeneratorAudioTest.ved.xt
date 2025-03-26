@@ -1,0 +1,27 @@
+/* XPECT_SETUP org.xtext.example.videoeditTest.generator.CodeGeneratorTest END_SETUP */
+/* 
+ * Test case for VideoEdit Audio file code generator
+ */
+/* 
+XPECT generated ---
+TITLE: Runtime Test
+FCM: NON-DROP FRAME
+
+001  AX       V     C        00:00:00:00 00:00:10:00 00:00:00:00 00:00:10:00
+* FROM CLIP NAME: audioGen.mp3
+
+---
+*/
+
+project "Runtime Test" {
+    track V1 MainVideo {
+        clip "audioGen.mp3" {
+        	source: "audioGen.mp3"
+            source_in: 0:0:0:0
+            source_out: 0:0:10:0
+            target_position: 0:0:0:0
+        }
+    }
+}
+
+

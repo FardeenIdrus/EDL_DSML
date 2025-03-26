@@ -1,0 +1,12 @@
+/* XPECT_SETUP org.xtext.example.videoeditTest.grammar.GrammarTest END_SETUP */
+
+project "Complex Time Code Test" {
+    track V1 complex {
+        clip "Long Clip" {
+            source: "long_video.mp4"
+            source_in: 1:30:45:12
+            source_out: 2:15:30:18
+            target_position: 0:0:0:0
+        }
+    }
+}

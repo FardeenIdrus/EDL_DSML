@@ -1,0 +1,29 @@
+/* XPECT_SETUP org.xtext.example.videoeditTest.generator.CodeGeneratorTest END_SETUP */
+
+/* 
+ * Test case for a simple video (mp4) file. 
+ */
+ 
+/* 
+XPECT generated ---
+
+TITLE: Single Video Test
+FCM: NON-DROP FRAME
+
+001  AX       V     C        00:00:00:00 00:00:10:00 00:00:00:00 00:00:10:00
+* FROM CLIP NAME: Short3Eng.mp4
+
+---
+*/
+
+project "Single Video Test" {
+    track V1 main_video {
+        clip "Short Video" {
+            source: "Short3Eng.mp4"
+            source_in: 0:0:0:0
+            source_out: 0:0:10:0
+            target_position: 0:0:0:0
+        }
+    }
+}
+

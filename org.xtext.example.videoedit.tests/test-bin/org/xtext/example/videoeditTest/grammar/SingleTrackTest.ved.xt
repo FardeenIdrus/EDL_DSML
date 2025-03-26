@@ -1,0 +1,12 @@
+/* XPECT_SETUP org.xtext.example.videoeditTest.grammar.GrammarTest END_SETUP */
+
+project "Single Track Test" {
+    track V1 MainVideo {
+        clip "audioGen.mp3" {
+            source: "audioGen.mp3"
+            source_in: 0:0:0:0
+            source_out: 0:0:10:0
+            target_position: 0:0:0:0
+        }
+    }
+}
