@@ -1,0 +1,44 @@
+/*
+ * Test with multiple clips
+ */
+
+project "Music Video Editing Session" {
+    track V1 main_video {
+        clip "Opening Scene" {
+            source: "Short3Eng.mp4"
+            source_in: 0:0:0:0
+            source_out: 0:0:10:0
+            target_position: 0:0:0:0
+        }
+    }
+
+    track A1 background_music {
+        clip "Main Music" {
+            source: "exampleAudio.mp3"
+            source_in: 0:0:0:0
+            source_out: 0:0:30:0
+            target_position: 0:0:0:0
+            audio_level: 50%
+        }
+    }
+
+    track A2 secondary_audio {
+        clip "Transition Sound" {
+            source: "audioGen.mp3"
+            source_in: 0:0:0:0
+            source_out: 0:0:5:0
+            target_position: 0:0:10:0
+            audio_level: 75%
+        }
+    }
+
+    track V2 overlay {
+        clip "Overlay Scene" {
+            source: "Short3Eng.mp4"
+            source_in: 0:0:5:0
+            source_out: 0:0:15:0
+            target_position: 0:0:15:0
+            sync_with: "Opening Scene"
+        }
+    }
+}

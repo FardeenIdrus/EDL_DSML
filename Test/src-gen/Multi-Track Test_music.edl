@@ -1,0 +1,7 @@
+TITLE: Multi-Track Test
+FCM: NON-DROP FRAME
+
+001  AX       A     C        00:00:00:00 00:00:20:00 00:00:00:00 00:00:20:00
+* FROM CLIP NAME: exampleAudio.mp3
+* AUDIO LEVEL AT 00:00:00:00 IS 100.00 DB  (REEL AX A1)
+
