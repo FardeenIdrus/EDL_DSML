@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="videoEdit" nsURI="http://www.xtext.org/example/videoedit/VideoEdit"
+    nsPrefix="videoEdit">
+  <eClassifiers xsi:type="ecore:EClass" name="Project">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="tracks" upperBound="-1"
+        eType="#//Track" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Track">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="#//TrackType"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="clips" upperBound="-1"
+        eType="#//Clip" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="TrackType">
+    <eLiterals name="V1" literal="V1"/>
+    <eLiterals name="V2" value="1" literal="V2"/>
+    <eLiterals name="V3" value="2" literal="V3"/>
+    <eLiterals name="A1" value="3" literal="A1"/>
+    <eLiterals name="A2" value="4" literal="A2"/>
+    <eLiterals name="A3" value="5" literal="A3"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Clip">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="source" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="sourceIn" eType="#//TimeCode"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="sourceOut" eType="#//TimeCode"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="targetPosition" eType="#//TimeCode"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="audioLevel" eType="#//AudioLevel"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="syncWith" eType="#//Clip"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="AudioLevel">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="level" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="TimeCode">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="hours" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="minutes" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="seconds" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="frames" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+  </eClassifiers>
+</ecore:EPackage>

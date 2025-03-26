@@ -1,0 +1,38 @@
+grammar org.xtext.example.videoedit.VideoEdit with org.eclipse.xtext.common.Terminals
+generate videoEdit "http://www.xtext.org/example/videoedit/VideoEdit"
+
+Project:
+// Project name starts with "project" then the name of the project
+'project' name=STRING '{'
+	//A project contains multiple track
+	tracks+=Track*
+'}';
+
+// A track is a video or audio track
+Track:
+	'track' type=TrackType name=ID '{'
+	// Each track can contain multiple clips
+	clips+=Clip*
+'}';
+
+// different types of track - audio (A1, A2, A3), video - (V1, V2, V3)
+enum TrackType:
+	V1='V1' | V2='V2' | V3='V3' |
+	A1='A1' | A2='A2' | A3='A3';
+
+Clip:
+	'clip' name=STRING '{' // Each clip has a name in quotes
+	'source:' source=STRING // The source file path
+	'source_in:' sourceIn=TimeCode //Starting timecode in the source file
+	'source_out:' sourceOut=TimeCode // Ending timecode in the source file
+	'target_position:' targetPosition=TimeCode //where to place the clip in the timeline
+	(audioLevel=AudioLevel)? //Optional setting for audio level
+	 ('sync_with:' syncWith=[Clip|STRING])? // Optional reference to another clip
+	
+'}';
+
+AudioLevel:
+	'audio_level:' level=INT '%'; // Percentage value for volume
+
+TimeCode:
+	hours=INT ':' minutes=INT ':' seconds=INT ':' frames=INT;

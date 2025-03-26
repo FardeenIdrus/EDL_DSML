@@ -1,0 +1,29 @@
+Manifest-Version: 1.0
+Automatic-Module-Name: org.xtext.example.videoedit
+Bundle-ManifestVersion: 2
+Bundle-Name: org.xtext.example.videoedit
+Bundle-Vendor: My Company
+Bundle-Version: 1.0.0.qualifier
+Bundle-SymbolicName: org.xtext.example.videoedit; singleton:=true
+Bundle-ActivationPolicy: lazy
+Require-Bundle: org.eclipse.xtext,
+ org.eclipse.xtext.xbase,
+ org.eclipse.equinox.common;bundle-version="3.16.0",
+ org.eclipse.emf.ecore,
+ org.eclipse.xtext.xbase.lib;bundle-version="2.14.0",
+ org.eclipse.xtext.util,
+ org.eclipse.emf.common,
+ org.antlr.runtime;bundle-version="[3.2.0,3.2.1)"
+Bundle-RequiredExecutionEnvironment: JavaSE-17
+Export-Package: org.xtext.example.videoedit,
+ org.xtext.example.videoedit.videoEdit.impl,
+ org.xtext.example.videoedit.validation,
+ org.xtext.example.videoedit.videoEdit.util,
+ org.xtext.example.videoedit.parser.antlr,
+ org.xtext.example.videoedit.parser.antlr.internal,
+ org.xtext.example.videoedit.videoEdit,
+ org.xtext.example.videoedit.scoping,
+ org.xtext.example.videoedit.services,
+ org.xtext.example.videoedit.serializer,
+ org.xtext.example.videoedit.generator
+Import-Package: org.apache.log4j
